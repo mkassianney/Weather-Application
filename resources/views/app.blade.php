@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -30,7 +30,7 @@
                     <div class="flex gap-4 justify-center items-center w-full h-full">
                         <form action="/action_page.php" method="post" class="w-full h-full flex flex-row gap-4 justify-center items-center">
                             <input type="text" id="search" name="search" placeholder="Pesquisar cidade ou região..." class="w-[50%] h-[3rem] md:w-[40%] md:h-[3.5rem] bg-soft_white text-lg md:text-sm rounded-2xl shadow-lg border-2 border-light_blue placeholder-truncate px-4 md:px-12">
-                            <button type="submit" class="w-32 h-14 bg-gradient-to-r from-light_blue via-blue to-medium_blue rounded-2xl text-white text-lg font-semibold shadow-lg">Buscar</button>
+                            <button type="submit" class="w-32 h-14 bg-gradient-to-r from-light_blue via-blue to-medium_blue rounded-2xl text-white text-lg font-semibold shadow-lg cursor-pointer">Buscar</button>
                         </form>
                     </div>
                     <div class="flex justify-center items-center bg-white/10 rounded-2xl w-[90%] h-64 md:w-[50%] md:h-48">
