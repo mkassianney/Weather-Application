@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class WeatherController extends Controller
 {
     public function index(){
-        return view('app');
+        return view('index');
+    }
+
+    // função para pesquisar o clima da cidade
+
+    public function show(){
+        return view('weather');
     }
 }

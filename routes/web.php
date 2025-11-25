@@ -11,4 +11,6 @@ Route::get('/hello', function () {
     echo 'Hello World!';
 });
 
-Route::get('/app', [WeatherController::class, 'index']);
+Route::get('/index', [WeatherController::class, 'index']);
+
+Route::get('/weather', [WeatherController::class, 'show']);
