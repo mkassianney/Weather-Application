@@ -1,28 +1,29 @@
-<x-layout>
-                    
-                <div class="flex flex-col justify-center items-center gap-12 w-full min-h-screen bg-gradient-to-br from-light_blue via-blue to-dark_blue py-12">
+@extends('layouts.main')
+
+    @section('content')
+                <div class="flex flex-col justify-center items-center gap-12 w-full min-h-screen bg-gradient-to-br py-12">
                         <div class="flex flex-col justify-center items-center gap-4 bg-white/10 rounded-2xl shadow-lg border border-white/30 w-[80%] h-auto p-8">
-                            <h2 class="text-white text-4xl font-bold">Salvador</h2>
-                            <p class="text-white/50 text-xl">Brasil</p>
+                            <h2 class="text-white text-4xl font-bold">{{ $weather['city'] }}</h2>
+                            <p class="text-white/50 text-xl">{{ $weather['country'] }}</p>
                             <div class="flex justify-center items-center bg-white/20 rounded-full w-40 h-40">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-icon lucide-cloud">
                                     <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
                                 </svg>
                             </div>
-                            <h2 class="text-white text-6xl font-bold">26°</h2>
-                            <p class="text-white text-xl">Algumas nuvens</p>
+                            <h2 class="text-white text-6xl font-bold">{{ $weather['temp'] }}°</h2>
+                            <p class="text-white text-xl">{{ $weather['condition'] }}</p>
                             <div class="grid grid-cols-3">
                                 <div class="flex flex-col justify-center items-center gap-4">
                                     <p class="text-white/40 text-sm">Sensação</p>
-                                    <p class="text-white text-xl">26°</p>
+                                    <p class="text-white text-xl">{{ $weather['feelslike'] }}°</p>
                                 </div>
                                 <div class="flex justify-center items-center">
                                     <div class="bg-white/20 w-[0.025rem] h-14"></div>
                                 </div>
-                                
+
                                 <div class="flex flex-col justify-center items-center gap-4">
                                     <p class="text-white/40 text-sm">Máx/Mín</p>
-                                    <p class="text-white text-xl">29°/25°</p>
+                                    <p class="text-white text-xl">{{ $weather['max_temp'] }}°/{{ $weather['min_temp'] }}°</p>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +31,7 @@
                             <div class="flex justify-between bg-white/10 rounded-2xl border border-white/30 w-full h-auto p-6">
                                 <div class="flex flex-col justify-center gap-2">
                                     <p class="text-white/40 text-lg">Umidade</p>
-                                    <h2 class="text-white text-3xl">80%</h2>
+                                    <h2 class="text-white text-3xl">{{ $weather['humidity'] }}%</h2>
                                 </div>
                                 <div class="flex justify-center items-center bg-white/30 rounded-2xl w-14 h-14">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-droplets-icon lucide-droplets">
@@ -43,7 +44,7 @@
                             <div class="flex justify-between bg-white/10 rounded-2xl border border-white/30 w-full h-auto p-6">
                                 <div class="flex flex-col justify-center gap-2">
                                     <p class="text-white/40 text-lg">Vento</p>
-                                    <h2 class="text-white text-3xl">8km</h2>
+                                    <h2 class="text-white text-3xl">{{ $weather['wind_kph'] }}km</h2>
                                 </div>
                                 <div class="flex justify-center items-center bg-white/30 rounded-2xl w-14 h-14">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind-icon lucide-wind">
@@ -57,7 +58,7 @@
                             <div class="flex justify-between bg-white/10 rounded-2xl border border-white/30 w-full h-auto p-6">
                                 <div class="flex flex-col justify-center gap-2">
                                     <p class="text-white/40 text-lg">Pressão</p>
-                                    <h2 class="text-white text-3xl">1012hPa</h2>
+                                    <h2 class="text-white text-3xl">{{ $weather['pressure_mb'] }}hPa</h2>
                                 </div>
                                 <div class="flex justify-center items-center bg-white/30 rounded-2xl w-14 h-14">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge">
@@ -70,7 +71,7 @@
                             <div class="flex justify-between bg-white/10 rounded-2xl border border-white/30 w-full h-auto p-6">
                                 <div class="flex flex-col justify-center gap-2">
                                     <p class="text-white/40 text-lg">Visibilidade</p>
-                                    <h2 class="text-white text-3xl">10km</h2>
+                                    <h2 class="text-white text-3xl">{{ $weather['vis_km'] }}km</h2>
                                 </div>
                                 <div class="flex justify-center items-center bg-white/30 rounded-2xl w-14 h-14">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-icon lucide-eye"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
@@ -82,7 +83,7 @@
                             <div class="flex justify-between bg-white/10 rounded-2xl border border-white/30 w-full h-auto p-6">
                                 <div class="flex flex-col justify-center gap-2">
                                     <p class="text-white/40 text-lg">Nascer do Sol</p>
-                                    <h2 class="text-white text-3xl">6:00 AM</h2>
+                                    <h2 class="text-white text-3xl">{{ $weather['sunrise'] }}</h2>
                                 </div>
                                 <div class="flex justify-center items-center bg-white/30 rounded-2xl w-14 h-14">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sunrise-icon lucide-sunrise"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/>
@@ -97,7 +98,7 @@
                             <div class="flex justify-between bg-white/10 rounded-2xl border border-white/30 w-full h-auto p-6">
                                 <div class="flex flex-col justify-center gap-2">
                                     <p class="text-white/40 text-lg">Pôr do Sol</p>
-                                    <h2 class="text-white text-3xl">6:00 PM</h2>
+                                    <h2 class="text-white text-3xl">{{ $weather['sunset'] }}</h2>
                                 </div>
                                 <div class="flex justify-center items-center bg-white/30 rounded-2xl w-14 h-14">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sunset-icon lucide-sunset"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/>
@@ -196,5 +197,4 @@
                             </div>
                         </div>
                     </div>
-                    
-</x-layout>
+    @endsection

@@ -7,10 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', function () {
-    echo 'Hello World!';
-});
-
-Route::get('/index', [WeatherController::class, 'index']);
-
 Route::get('/weather', [WeatherController::class, 'show']);
+Route::get('/index', [WeatherController::class, 'index']);

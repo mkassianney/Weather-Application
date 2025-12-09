@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\WeatherService;
 
 class WeatherController extends Controller
 {
@@ -13,7 +14,11 @@ class WeatherController extends Controller
 
     // função para pesquisar o clima da cidade
 
-    public function show(){
-        return view('weather');
-    }
+    public function show(Request $request, WeatherService $service)
+{
+    $weather = $service->getWeatherResponse($request->city);
+
+    return view('weather', compact('weather'));
+}
+
 }

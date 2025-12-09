@@ -10,9 +10,9 @@
 @source '../**/*.js';
 
 @theme {
-  --color-light_blue: #3796f0;
-  --color-blue: #0070d9;
-  --color-medium_blue: #004f99;
+  --color-light_blue: #8ac6ff;
+  --color-blue: #3288d9;
+  --color-medium_blue: #0a69c2;
   --color-dark_blue: #014787;
   --color-soft_white: #f2f6fa;
 }
